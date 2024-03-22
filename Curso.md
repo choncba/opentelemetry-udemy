@@ -1,6 +1,8 @@
-# Curso Opentelemetry Udemy
+# Curso Opentelemetry Udemy - Parte 1
 https://tecom.udemy.com/course/observability-in-cloud-native-apps-using-opentelemetry/
 Repo: https://github.com/habmic/opentelemetry-101/tree/main
+
+## La parte 2 del curso es usando el colector de opentelemetry, ir al branch opentelemetry-collector
 
 ## Pasos
 1 - Instalar módulos localmente ejecutando: yarn
