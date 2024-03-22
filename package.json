@@ -6,13 +6,22 @@
   "author": "Michael Haberman <habmic@gmail.com",
   "license": "MIT",
   "scripts": {
-    "todo": "ts-node-dev todo-service.ts",
-    "auth": "ts-node-dev auth-service.ts"
+    "todo": "ts-node-dev ./src/todo-service.ts",
+    "auth": "ts-node-dev ./src/auth-service.ts"
   },
   "dependencies": {
+    "@opentelemetry/api": "^1.8.0",
+    "@opentelemetry/auto-instrumentations-node": "^0.43.0",
+    "@opentelemetry/exporter-metrics-otlp-proto": "^0.49.1",
+    "@opentelemetry/exporter-prometheus": "^0.49.1",
+    "@opentelemetry/exporter-trace-otlp-proto": "^0.49.1",
+    "@opentelemetry/sdk-metrics": "^1.22.0",
+    "@opentelemetry/sdk-node": "^0.49.1",
     "axios": "^1.4.0",
     "express": "^4.18.2",
+    "install": "^0.13.0",
     "ioredis": "^5.3.2",
+    "npm": "^9.8.1",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.1.6"
   },

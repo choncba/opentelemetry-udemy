@@ -6,16 +6,33 @@ services:
       context: .
       dockerfile: dockerfile.todo-service
     volumes:
-      - .:/usr/src/app:rw
+      - .:/usr/src/app/src:rw
     ports:
       - 8081:8080
+    environment:
+      - OTEL_LOG_LEVEL=ERROR
   auth:
     build: 
       context: .
       dockerfile: dockerfile.auth-service
     volumes:
-      - .:/usr/src/app:rw
+      - .:/usr/src/app/src:rw
   redis:
     image: redis:latest
     ports:
-      - '6379:6379'
+      - '10000:6379'
+  jaeger:
+    image: jaegertracing/all-in-one
+    ports:
+        - 4318
+        - 16686:16686
+    environment:
+        COLLECTOR_OTLP_ENABLED: true
+  prometheus:
+    image: prom/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    volumes:
+      - ./prometheus/:/etc/prometheus/
+    ports:
+      - 9090:9090        
